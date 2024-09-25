@@ -1,8 +1,8 @@
 """
-a collection of file editing functions
+a collection of file editing functions and user input functions
 jesse.naumanen@tuni.fi
 """
-def readIntegerInput(prompt = "Awaiting input: "):
+def read_integer_to_input(prompt = "Awaiting input: "):
     """
     input reader, for integers
     :prompt: input prompt
@@ -18,45 +18,45 @@ def readIntegerInput(prompt = "Awaiting input: "):
         except ValueError:
             i = input(prompt)
 
-def writeInputToFile(fileToWrite):
+def write_input_to_file(target_file):
     """
-    writeInputToFile, writes user input to file in rows
+    write_input_to_file, writes user input to file in rows
     :return:
     """
     while True:
-        uInput = input()
-        if uInput == "":
+        u_input = input()
+        if u_input == "":
             return
-        print(f"{uInput}", file = fileToWrite)
+        print(f"{u_input}", file = target_file)
 
-def getFile(fileName):
+def get_file(filename):
     """
     getFile, fetches a file from same directory
-    :param fileName: the name of the file
-    :return: the file, if possible to read
+    :param filename: the name of the file
+    :return: target file, if possible to read
     """
     try:
-        file = open(fileName, mode="r")
+        file = open(filename, mode="r")
     except OSError:
         print(f"There was an error in reading the file.")
         return 0
     file.close()
     return file
 
-def writeFile(fileName):
+def write_file(filename):
     """
     writeFile, creates a file in write format
-    :param fileName: name of file
+    :param filename: name of file
     :return:
     """
     try:
-        file = open(fileName, mode="w")
+        file = open(filename, mode="w")
     except OSError:
-        print(f"Writing the file {fileName} was not successful.")
+        print(f"Writing the file {filename} was not successful.")
         return 0
     print("Enter rows of text. Quit by entering an empty row.")
-    writeInputToFile(file)
-    print(f"File {fileName} has been written.")
+    write_input_to_file(file)
+    print(f"File {filename} has been written.")
     file.close()
     return
 
