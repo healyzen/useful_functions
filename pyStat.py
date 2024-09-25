@@ -1,72 +1,72 @@
 """
-A collection of mathematical functions, without module depencencies
+A collection of mathematical functions, without module dependence
 Currently mainly statistical functions
 jesse.naumanen@tuni.fi
 """
-def calculateMedian(list):
+def calculate_median(list):
     """
     median calculator
     :param list: list of values
     :return: list median
     """
-    list = sorted(list) #järjestää listan suuruusjärjestykseen
-    lenght = len(list) #listan pituus
-    if lenght % 2 == 0: # jos parillinen määrä arvoja
-        median = (list[int(lenght/2)] + list[int(lenght/2) - 1])/2
+    list = sorted(list)
+    length = len(list) #list length
+    if length % 2 == 0: #if_even
+        median = (list[int(length/2)] + list[int(length/2) - 1])/2
         return median
-    else: # jos pariton määrä arvoja
-        median = list[int((lenght)/2)]
+    else: #if_odd
+        median = list[int(length/2)]
         return median
 
-def calculateAverage(list):
+def calculate_average(list):
     """
     average calculator
     :param list: list of values
     :return: list average
     """
-    lenght = len(list)
-    sumValue = 0
+    length = len(list)
+    sum_value = 0
     for value in list:
-        sumValue += value
-    average = sumValue/lenght
+        sum_value += value
+    average = sum_value/length
     return average
 
-def calculateVariance(list):
+def calculate_variance(list):
     """
-    list variance and stdev calculator
+    list variance and std_dev calculator
     :param list: list of values
     :return: variance and stdDev of list
     """
-    lenght = len(list) #list length
-    average = calculateAverage(list) #average
-    sumList = 0 #variance sum
+    length = len(list) #list length
+    average = calculate_average(list) #average
+    sum_list = 0 #variance sum
     for value in list:
-        sumList += (value-average)**2
-    variance = (1/(lenght-1))*sumList #variance
-    stdDeviation = variance**0.5 #sqrt of variance
-    return variance, stdDeviation
+        sum_list += (value-average)**2
+    variance = (1/(length-1))*sum_list #variance
+    std_deviation = variance**0.5 #sqrt of variance
+    return variance, std_deviation
 
-def minmax(list):
+def min_max(list):
     """
     list min & max
-    :param list: a list
+    :param list: a list of values
     :return: list min and max
     """
-    list = sorted(list) #järjestää listan
-    return list[0], list[-1] #palauttaan listan ensimmäisen ja viimeisen arvo
+    list = sorted(list)
+    return list[0], list[-1] #list first and last index
 
-def statisticResult(list):
+def statistic_list_result(list):
     """
     list statistics printer, dependent on other functions within this module
     :param list: list of values
     :return: list statistics
     """
-    min, max = minmax(list)
-    median = calculateMedian(list)
-    mean = calculateAverage(list)
-    variance, deviation = calculateVariance(list)
-    print(F"Minimum:   {min:.2f} cm")
-    print(F"Maximum:   {max:.2f} cm")
+    list_min, list_max = min_max(list)
+    median = calculate_median(list)
+    mean = calculate_average(list)
+    variance, deviation = calculate_variance(list)
+    print(F"Minimum:   {list_min:.2f} cm")
+    print(F"Maximum:   {list_max:.2f} cm")
     print(F"Median:    {median:.2f} cm")
     print(F"Mean:      {mean:.2f} cm")
     print(F"Deviation: {deviation:.2f} cm")
