@@ -71,8 +71,10 @@ def statistic_list_result(list):
     print(F"Mean:      {mean:.2f} cm")
     print(F"Deviation: {deviation:.2f} cm")
 
+
+
+#main for testing purposes
 def main():
     print("This is pyStat")
-
 if __name__ == "__main__":
     main()

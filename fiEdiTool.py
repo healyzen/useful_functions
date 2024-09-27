@@ -60,8 +60,9 @@ def write_file(filename):
     file.close()
     return
 
+#main for testing purposes
 def main():
-    print()
+    print("This is fiEdiTool")
 
 if __name__ == "__main__":
     main()
