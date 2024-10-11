@@ -27,6 +27,13 @@ class Fraction:
         self.__numerator = numerator
         self.__denominator = denominator
 
+    def __lt__(self, other):
+        """
+        comparison operator
+        :param other: the other fraction to be compared
+        """
+        return self.__numerator*other.__denominator < other.__numerator*self.__denominator
+
     def return_string(self):
         """
         This is the string version of the target fraction
