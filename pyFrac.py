@@ -34,6 +34,16 @@ class Fraction:
         """
         return self.__numerator*other.__denominator < other.__numerator*self.__denominator
 
+    def __str__(self):
+        """
+        this is string type support
+        """
+        if self.__numerator * self.__denominator < 0:
+            sign = "-"
+        else:
+            sign = ""
+        return f"{sign}{abs(self.__numerator)}/{abs(self.__denominator)}"
+
     def return_string(self):
         """
         This is the string version of the target fraction
